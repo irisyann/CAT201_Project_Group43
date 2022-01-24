@@ -39,7 +39,7 @@
             <Image url="@images/cat2.png" />
          </image>
       </ImageView>
-      <TextField fx:id="login_nameInput" layoutX="279.0" layoutY="369.0" prefHeight="44.0" prefWidth="278.0" />
+      <TextField fx:id="login_nameInput" layoutX="279.0" layoutY="369.0" prefHeight="44.0" prefWidth="278.0" style="-fx-border-color: #494B35; -fx-border-width: 2; -fx-border-radius: 5;" />
       <ImageView fx:id="login_loading" fitHeight="44.0" fitWidth="50.0" layoutX="396.0" layoutY="507.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@images/loading.gif" />
