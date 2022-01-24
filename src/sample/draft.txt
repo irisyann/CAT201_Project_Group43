@@ -1,0 +1,22 @@
+cat201 diary app
+
+login
+change password
+
+menu
+
+todolist
+
+create diary entry
+--date
+--weather
+--mood
+--- mood chart
+--goals chart
+--- exercise, drink water, yoga,
+--text
+--upload photo
+
+view journal entries (list)
+
+quote of the day
