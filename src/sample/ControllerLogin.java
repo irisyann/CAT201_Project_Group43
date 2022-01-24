@@ -38,7 +38,7 @@ public class ControllerLogin {
 
         } else {
 
-            BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\Ray\\Desktop\\CODING\\Java\\Diary\\src\\sample\\username.txt"));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\Ray\\Desktop\\CODING\\GitHub\\CAT201_Diary\\src\\sample\\username.txt"));
             writer.write(username);
             writer.close();
 

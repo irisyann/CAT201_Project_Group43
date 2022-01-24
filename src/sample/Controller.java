@@ -42,8 +42,8 @@ public class Controller implements Initializable {
     VBox vbox = new VBox();
     ArrayList<CheckBox> todos = new ArrayList<>(); // list to hold collection of checkboxes (1 checkbox for each todo)
 
-    final String daysFolderPath = "C:\\Users\\Ray\\Desktop\\CODING\\Java\\Diary\\src\\days\\";
-    final String mainFolderPath = "C:\\Users\\Ray\\Desktop\\CODING\\Java\\Diary\\src\\sample\\";
+    final String daysFolderPath = "C:\\Users\\Ray\\Desktop\\CODING\\GitHub\\CAT201_Diary\\src\\days\\";
+    final String mainFolderPath = "C:\\Users\\Ray\\Desktop\\CODING\\GitHub\\CAT201_Diary\\src\\sample\\";
     List<JFXButton> daysList = new ArrayList<>(); // list to hold collection of HBox (1 HBox for each day)
 
     @FXML

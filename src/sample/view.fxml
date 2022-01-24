@@ -138,116 +138,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="pane_newday" layoutY="40.0" prefHeight="560.0" prefWidth="655.0" visible="false">
-               <children>
-                  <Label alignment="CENTER" layoutX="174.0" layoutY="29.0" prefHeight="40.0" prefWidth="307.0" text="Today is a new day! How are you feeling?" textAlignment="CENTER">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font></Label>
-                  <TextArea fx:id="newday_textarea" layoutX="59.0" layoutY="201.0" prefHeight="279.0" prefWidth="537.0" style="-fx-control-inner-background: #494B35; -fx-text-fill: white; -fx-faint-focus-color: #494B35;" />
-                  <JFXButton fx:id="newday_mood_happy" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="74.0" layoutY="75.0" onAction="#handleMoodButtonAction" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: EBEBEB; -fx-background-radius: 10px;" text=" ">
-                     <graphic>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/moods/happy.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </JFXButton>
-                  <JFXButton fx:id="newday_mood_romantic" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="139.0" layoutY="75.0" onAction="#handleMoodButtonAction" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: EBEBEB; -fx-background-radius: 10px;" text=" ">
-                     <graphic>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/moods/romantic.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </JFXButton>
-                  <JFXButton fx:id="newday_mood_embarrassed" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="203.0" layoutY="75.0" onAction="#handleMoodButtonAction" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: EBEBEB; -fx-background-radius: 10px;" text=" ">
-                     <graphic>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/moods/embarrassed.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </JFXButton>
-                  <JFXButton fx:id="newday_mood_confused" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="268.0" layoutY="75.0" onAction="#handleMoodButtonAction" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: EBEBEB; -fx-background-radius: 10px;" text=" ">
-                     <graphic>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/moods/confused.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </JFXButton>
-                  <JFXButton fx:id="newday_mood_annoyed" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="332.0" layoutY="75.0" onAction="#handleMoodButtonAction" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: EBEBEB; -fx-background-radius: 10px;" text=" ">
-                     <graphic>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/moods/annoyed.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </JFXButton>
-                  <JFXButton fx:id="newday_mood_unwell" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="397.0" layoutY="75.0" onAction="#handleMoodButtonAction" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: EBEBEB; -fx-background-radius: 10px;" text=" ">
-                     <graphic>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/moods/unwell.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </JFXButton>
-                  <JFXButton fx:id="newday_mood_sad" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="461.0" layoutY="75.0" onAction="#handleMoodButtonAction" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: EBEBEB; -fx-background-radius: 10px;" text=" ">
-                     <graphic>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/moods/sad.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </JFXButton>
-                  <JFXButton fx:id="newday_mood_angry" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="526.0" layoutY="75.0" onAction="#handleMoodButtonAction" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: EBEBEB; -fx-background-radius: 10px;" text=" ">
-                     <graphic>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/moods/angry.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </JFXButton>
-                  <Label alignment="CENTER" layoutX="170.0" layoutY="161.0" prefHeight="40.0" prefWidth="307.0" text="Write down what happened today!" textAlignment="CENTER">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Label>
-                  <JFXButton fx:id="newday_saveButton" alignment="CENTER" layoutX="539.0" layoutY="487.0" onAction="#saveNewEntry" style="-fx-background-color: #494B35; -fx-text-fill: white;" text="Save">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </JFXButton>
-                  <Label fx:id="newday_responsemsg" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="292.0" layoutY="485.0" prefHeight="40.0" prefWidth="233.0" text="[response_msg]" textAlignment="CENTER" visible="false">
-                     <font>
-                        <Font name="System Bold Italic" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="newday_moodselectedprompttext" alignment="CENTER" layoutX="228.0" layoutY="129.0" prefHeight="25.0" prefWidth="110.0" text="Your mood today is" textAlignment="CENTER" visible="false">
-                     <font>
-                        <Font name="System Italic" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="newday_moodtext" layoutX="338.0" layoutY="129.0" prefHeight="25.0" prefWidth="117.0" text="[mood]" textAlignment="CENTER" visible="false">
-                     <font>
-                        <Font name="System Bold Italic" size="12.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="pane_home" layoutY="40.0" prefHeight="560.0" prefWidth="655.0">
+            <AnchorPane fx:id="pane_home" layoutY="40.0" prefHeight="560.0" prefWidth="655.0" visible="false">
                <children>
                   <Label layoutX="119.0" layoutY="71.0" prefHeight="45.0" prefWidth="110.0" text="Hello,">
                      <font>
@@ -371,6 +262,115 @@
                      </graphic>
                   </JFXButton>
                   <DatePicker fx:id="viewdays_datepicker" layoutX="49.0" layoutY="34.0" onAction="#displaySpecificDay" prefHeight="36.0" prefWidth="246.0" promptText="Select a day" stylesheets="@style_calendar.css" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="pane_newday" layoutY="40.0" prefHeight="560.0" prefWidth="655.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="174.0" layoutY="29.0" prefHeight="40.0" prefWidth="307.0" text="Today is a new day! How are you feeling?" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font></Label>
+                  <TextArea fx:id="newday_textarea" layoutX="59.0" layoutY="201.0" prefHeight="279.0" prefWidth="537.0" style="-fx-control-inner-background: #494B35; -fx-text-fill: white; -fx-faint-focus-color: #494B35;" />
+                  <JFXButton fx:id="newday_mood_happy" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="74.0" layoutY="75.0" onAction="#handleMoodButtonAction" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: E8ECAE; -fx-background-radius: 10px;" text=" ">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/moods/happy.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </JFXButton>
+                  <JFXButton fx:id="newday_mood_romantic" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="139.0" layoutY="75.0" onAction="#handleMoodButtonAction" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: E8ECAE; -fx-background-radius: 10px;" text=" ">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/moods/romantic.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="newday_mood_embarrassed" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="203.0" layoutY="75.0" onAction="#handleMoodButtonAction" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: E8ECAE; -fx-background-radius: 10px;" text=" ">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/moods/embarrassed.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="newday_mood_confused" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="268.0" layoutY="75.0" onAction="#handleMoodButtonAction" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: E8ECAE; -fx-background-radius: 10px;" text=" ">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/moods/confused.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="newday_mood_annoyed" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="332.0" layoutY="75.0" onAction="#handleMoodButtonAction" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: E8ECAE; -fx-background-radius: 10px;" text=" ">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/moods/annoyed.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="newday_mood_unwell" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="397.0" layoutY="75.0" onAction="#handleMoodButtonAction" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: E8ECAE; -fx-background-radius: 10px;" text=" ">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/moods/unwell.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="newday_mood_sad" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="461.0" layoutY="75.0" onAction="#handleMoodButtonAction" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: E8ECAE; -fx-background-radius: 10px;" text=" ">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/moods/sad.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="newday_mood_angry" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="526.0" layoutY="75.0" onAction="#handleMoodButtonAction" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: E8ECAE; -fx-background-radius: 10px;" text=" ">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/moods/angry.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <Label alignment="CENTER" layoutX="170.0" layoutY="161.0" prefHeight="40.0" prefWidth="307.0" text="Write down what happened today!" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <JFXButton fx:id="newday_saveButton" alignment="CENTER" layoutX="539.0" layoutY="487.0" onAction="#saveNewEntry" style="-fx-background-color: #494B35; -fx-text-fill: white;" text="Save">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </JFXButton>
+                  <Label fx:id="newday_responsemsg" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="292.0" layoutY="485.0" prefHeight="40.0" prefWidth="233.0" text="[response_msg]" textAlignment="CENTER" visible="false">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="newday_moodselectedprompttext" alignment="CENTER" layoutX="228.0" layoutY="129.0" prefHeight="25.0" prefWidth="110.0" text="Your mood today is" textAlignment="CENTER" visible="false">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="newday_moodtext" layoutX="338.0" layoutY="129.0" prefHeight="25.0" prefWidth="117.0" text="[mood]" textAlignment="CENTER" visible="false">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </children></AnchorPane>
