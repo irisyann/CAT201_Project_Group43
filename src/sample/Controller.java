@@ -47,13 +47,13 @@ public class Controller implements Initializable {
     List<JFXButton> daysList = new ArrayList<>(); // list to hold collection of HBox (1 HBox for each day)
 
     @FXML
-    private AnchorPane pane_all, pane_newday, pane_viewdays, pane_todolist, pane_calendar, pane_home, pane_editday, menu, calendar_calendarholder;
+    private AnchorPane pane_all, pane_newday, pane_viewdays, pane_todolist, pane_calendar, pane_home, pane_editday, pane_openday, menu, calendar_calendarholder;
 
     @FXML
-    private JFXButton tab_newday, tab_viewdays, tab_todolist, tab_calendar, tab_home, editday_saveButton;
+    private JFXButton tab_newday, tab_viewdays, tab_todolist, tab_calendar, tab_home, editday_saveButton, newday_saveButton;
 
     @FXML
-    private Label home_date, home_username, home_quote, home_weatherText, home_weatherTemp, home_time, editday_date;
+    private Label home_date, home_username, home_quote, home_weatherText, home_weatherTemp, home_time, editday_date, openday_date, viewdays_noEntryFoundLabel;
 
     @FXML
     private ImageView home_weatherIcon, home_daynightimage;
@@ -344,6 +344,10 @@ public class Controller implements Initializable {
         } else if (type == "error") {
             label_responsemsg.setText("An error has occurred. Please try again!"); // error message
             label_responsemsg.setStyle("-fx-text-fill: #700C00"); // set text colour to dark red
+
+        } else if (type == "overwrite") {
+            label_responsemsg.setText("You have overwritten today's entry."); // error message
+            label_responsemsg.setStyle("-fx-text-fill: #c94a00"); // set text colour to dark red
         }
 
         label_responsemsg.setVisible(true); // display message
@@ -435,11 +439,13 @@ public class Controller implements Initializable {
         } finally {
             bufferedReader.close();
         }
+
     }
 
     @FXML
     public void displaySpecificDay() {
         // clear list of days from view
+        viewdays_noEntryFoundLabel.setVisible(false);
         daysList.clear();
         vbox.getChildren().clear();
 
@@ -463,18 +469,25 @@ public class Controller implements Initializable {
             //local date + atStartOfDay() + default time zone + toInstant() = Date
             Date targetDate = Date.from(localDate.atStartOfDay(defaultZoneId).toInstant());
 
+            boolean dayFound = false;
+
             if (filename.contains(util.displayDateForFilename(targetDate))) {
 
                 try {
                     BufferedReader bufferedReader = new BufferedReader(new FileReader(files[i]));
                     renderDay(filename, bufferedReader, "specific");
                     bufferedReader.close();
+                    dayFound = true;
 
                 } catch (IOException fileNotFoundException) {
                     fileNotFoundException.printStackTrace();
                 }
-
                 break;
+            }
+
+            if (!dayFound) {
+                viewdays_noEntryFoundLabel.setVisible(true);
+
             }
 
         }
@@ -543,7 +556,7 @@ public class Controller implements Initializable {
             if (result.get() == buttonYes) {
 
                 if (fileToDelete.delete()) {
-                     initViewDays();
+                    initViewDays();
                 } else {
                     System.out.println("Failed to delete the file.");
                 }
@@ -681,18 +694,26 @@ public class Controller implements Initializable {
 
     @FXML
     private void openDay() {
-        Alert alert = new Alert(Alert.AlertType.NONE);
-        alert.initStyle(StageStyle.UNDECORATED);
-        alert.getButtonTypes().add(ButtonType.OK);
 
         Node node = getSelectedDay();
 
         if (node != null) {
+            pane_viewdays.setVisible(false);
+            pane_openday.toFront();
+            pane_openday.setVisible(true);
+
             String selectedDayName = ((JFXButton) node).getText();
             String targetDayFilename = daysFolderPath + selectedDayName.replace(" ", "-") + ".txt";
 
-            alert.setTitle(targetDayFilename);
+            String pageName = "openday";
 
+            TextArea textarea = (TextArea) pane_openday.lookup("#" + pageName + "_textarea");
+            Label label_moodtext = (Label) pane_openday.lookup("#" + pageName + "_moodtext");
+            Label label_moodselectedprompttext = (Label) pane_openday.lookup("#" + pageName + "_moodselectedprompttext");
+
+            openday_date.setText(selectedDayName);
+
+            // read original content of the day's entry
             FileReader fileReader = null;
             try {
                 fileReader = new FileReader(targetDayFilename);
@@ -702,27 +723,61 @@ public class Controller implements Initializable {
             }
 
             BufferedReader readFileBuffer = new BufferedReader(fileReader);
-
             StringBuilder dayContent = new StringBuilder();
             String contentLine;
 
             try {
-                readFileBuffer.readLine(); // read mood line so that it is not included in the actual content
+                String mood = readFileBuffer.readLine(); // read mood line so that it is not included in the actual content
+
+                // eg JFXButton mood fxid: editday_mood_happy
+                for( Node moodNode: pane_openday.getChildren()) {
+
+                    if( moodNode instanceof JFXButton) {
+
+                        // remove selected color from all buttons
+                        if (!moodNode.getId().contains("saveButton")) {
+                            moodNode.setStyle("-fx-background-color: #E8ECAE;");
+                        }
+
+                        // remove save button from view
+                        if (moodNode.getId().contains("saveButton")) {
+                            moodNode.setVisible(false);
+                        }
+
+                        // add selected colour to selected button
+                        if (moodNode.getId().contains(mood)) {
+                            moodNode.setStyle("-fx-background-color: #494B35;");
+                            moodNode.setDisable(false);
+
+                        } else {
+                            // disable button
+                            moodNode.setDisable(true);
+                        }
+                    }
+
+                }
+
+                // mood fxid is newday_mood_happy, so substring 12 gets the mood after 12 characters
+                label_moodselectedprompttext.setVisible(true);
+                label_moodtext.setVisible(true);
+                label_moodtext.setText(mood);
 
                 while( (contentLine = readFileBuffer.readLine()) != null) {
                     dayContent.append(contentLine);
+                    dayContent.append(System.getProperty( "line.separator" ));
+
                 }
 
                 fileReader.close();
                 readFileBuffer.close();
 
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
             }
 
-            alert.setHeaderText(selectedDayName);
-            alert.setContentText(String.valueOf(dayContent));
-            alert.show();
+            // take content of the day and put it into textarea to edit it
+            textarea.setText(String.valueOf(dayContent));
+            textarea.setEditable(false);
 
         } else {
             alertIfNoDaySelected("open");
@@ -796,10 +851,6 @@ public class Controller implements Initializable {
 
         initHomePage();
 
-
-//        initViewDays();
-//        initCalendar();
-//        displayTodolist();
 
     }
 }
