@@ -556,7 +556,7 @@ public class Controller implements Initializable {
             if (result.get() == buttonYes) {
 
                 if (fileToDelete.delete()) {
-                    initViewDays();
+                     initViewDays();
                 } else {
                     System.out.println("Failed to delete the file.");
                 }
