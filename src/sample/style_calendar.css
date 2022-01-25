@@ -47,7 +47,9 @@
 }
 
 .date-picker-popup  {
-	-fx-border-color: -fx-primary-color;
+	-fx-border-width: 0;
+	-fx-border-color: transparent;
+	-fx-effect: null;
 }
 
 .date-picker-popup .month-year-pane {
