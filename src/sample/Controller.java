@@ -42,8 +42,8 @@ public class Controller implements Initializable {
     VBox vbox = new VBox();
     ArrayList<CheckBox> todos = new ArrayList<>(); // list to hold collection of checkboxes (1 checkbox for each todo)
 
-    final String daysFolderPath = "C:\\Users\\Ray\\Desktop\\CODING\\GitHub\\CAT201_Diary\\src\\days\\";
-    final String mainFolderPath = "C:\\Users\\Ray\\Desktop\\CODING\\GitHub\\CAT201_Diary\\src\\sample\\";
+    final String daysFolderPath = "C:\\Users\\Ray\\Desktop\\CODING\\Java\\Diary\\src\\days\\";
+    final String mainFolderPath = "C:\\Users\\Ray\\Desktop\\CODING\\Java\\Diary\\src\\sample\\";
     List<JFXButton> daysList = new ArrayList<>(); // list to hold collection of HBox (1 HBox for each day)
 
     @FXML
@@ -344,11 +344,11 @@ public class Controller implements Initializable {
         } else if (type == "error") {
             label_responsemsg.setText("An error has occurred. Please try again!"); // error message
             label_responsemsg.setStyle("-fx-text-fill: #700C00"); // set text colour to dark red
-
         } else if (type == "overwrite") {
             label_responsemsg.setText("You have overwritten today's entry."); // error message
             label_responsemsg.setStyle("-fx-text-fill: #c94a00"); // set text colour to dark red
         }
+
 
         label_responsemsg.setVisible(true); // display message
 
@@ -439,13 +439,13 @@ public class Controller implements Initializable {
         } finally {
             bufferedReader.close();
         }
-
     }
 
     @FXML
     public void displaySpecificDay() {
         // clear list of days from view
         viewdays_noEntryFoundLabel.setVisible(false);
+        // clear list of days from view
         daysList.clear();
         vbox.getChildren().clear();
 
@@ -489,7 +489,6 @@ public class Controller implements Initializable {
                 viewdays_noEntryFoundLabel.setVisible(true);
 
             }
-
         }
 
     }
@@ -556,7 +555,7 @@ public class Controller implements Initializable {
             if (result.get() == buttonYes) {
 
                 if (fileToDelete.delete()) {
-                     initViewDays();
+                    initViewDays();
                 } else {
                     System.out.println("Failed to delete the file.");
                 }
@@ -626,7 +625,10 @@ public class Controller implements Initializable {
 
                 while( (contentLine = readFileBuffer.readLine()) != null) {
                     dayContent.append(contentLine);
+                    dayContent.append(System.getProperty( "line.separator" ));
+
                 }
+
 
                 fileReader.close();
                 readFileBuffer.close();
@@ -635,6 +637,7 @@ public class Controller implements Initializable {
                 ioException.printStackTrace();
             }
 
+            textarea.setWrapText(true);
             // take content of the day and put it into textarea to edit it
             textarea.setText(String.valueOf(dayContent));
 
@@ -712,7 +715,7 @@ public class Controller implements Initializable {
             Label label_moodselectedprompttext = (Label) pane_openday.lookup("#" + pageName + "_moodselectedprompttext");
 
             openday_date.setText(selectedDayName);
-
+            textarea.setWrapText(true);
             // read original content of the day's entry
             FileReader fileReader = null;
             try {
@@ -851,6 +854,10 @@ public class Controller implements Initializable {
 
         initHomePage();
 
+
+//        initViewDays();
+//        initCalendar();
+//        displayTodolist();
 
     }
 }
